@@ -41,7 +41,7 @@ const Header = () => {
           </button>
           
           <div className="user-profile" title={`Logged in as ${user?.name || 'Guest'}`}>
-            <div className="avatar">{user ? user.name.charAt(0) : 'G'}</div>
+            <div className="avatar">{user?.name ? user.name.charAt(0) : 'G'}</div>
           </div>
         </div>
       </div>
