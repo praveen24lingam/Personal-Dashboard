@@ -1,0 +1,43 @@
+.notes-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  overflow-y: auto;
+  max-height: 150px;
+}
+
+.note-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--text-main);
+}
+
+.note-bullet {
+  width: 5px;
+  height: 5px;
+  background-color: var(--text-muted);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.quick-note-input {
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: var(--border-radius-sm);
+  border: none;
+  background-color: #F4F4F5;
+  font-family: var(--font-family);
+  font-size: 13px;
+  color: var(--text-main);
+  outline: none;
+  transition: all 0.2s;
+}
+
+.quick-note-input::placeholder {
+  color: var(--text-muted);
+}
+
+.quick-note-input:focus {
+  background-color: #E4E4E7;
+}

@@ -1,0 +1,144 @@
+.widget-heading {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-main);
+  line-height: 1.4;
+}
+
+.progress-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.progress-track {
+  flex: 1;
+  height: 8px;
+  background-color: var(--primary-light);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background-color: var(--primary);
+  border-radius: 4px;
+}
+
+.progress-text {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.mt-auto { margin-top: auto; }
+.mb-2 { margin-bottom: 8px; }
+.text-sm { font-size: 13px; }
+.font-medium { font-weight: 500; }
+.font-bold { font-weight: 700; }
+
+.text-primary { color: var(--primary); }
+
+/* Timeline for Agenda */
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.timeline-item {
+  display: flex;
+  gap: 16px;
+  position: relative;
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: 3.5px;
+  top: 20px;
+  bottom: -16px;
+  width: 1px;
+  background-color: var(--border-color);
+}
+.timeline-item:last-child::before {
+  display: none;
+}
+
+.timeline-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--primary);
+  margin-top: 6px;
+  z-index: 1;
+  box-shadow: 0 0 0 4px var(--bg-card);
+}
+
+.timeline-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.timeline-time {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.timeline-desc {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.google-dot {
+  background-color: var(--success);
+}
+.google-badge {
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--success);
+  background: var(--success-bg);
+  padding: 2px 6px;
+  border-radius: 999px;
+  flex-shrink: 0;
+  margin-left: 8px;
+}
+
+/* Meeting Cards */
+.meeting-card {
+  padding: 16px;
+  border-radius: var(--border-radius-md);
+  border: 1px solid var(--border-color);
+  background-color: var(--bg-card);
+  border-left: 3px solid var(--primary);
+}
+
+.meeting-card.zoom {
+  border-left-color: var(--info);
+}
+
+/* Priority Matrix Quadrants */
+.matrix-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.matrix-quadrant {
+  padding: 16px;
+  border-radius: var(--border-radius-md);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 100px;
+}
+
+.quadrant-urgent-important { background-color: var(--danger-bg); }
+.quadrant-important { background-color: var(--warning-bg); }
+.quadrant-urgent { background-color: var(--info-bg); }
+.quadrant-later { background-color: #F4F4F5; }

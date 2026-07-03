@@ -1,0 +1,28 @@
+.matrix-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin-top: 24px;
+  height: 100%;
+}
+
+.matrix-quadrant {
+  display: flex;
+  flex-direction: column;
+}
+
+.matrix-quadrant.danger {
+  border-top: 4px solid var(--danger);
+}
+
+.matrix-quadrant.warning {
+  border-top: 4px solid var(--warning);
+}
+
+.matrix-quadrant.info {
+  border-top: 4px solid var(--info);
+}
+
+.matrix-quadrant.gray {
+  border-top: 4px solid var(--text-muted);
+}

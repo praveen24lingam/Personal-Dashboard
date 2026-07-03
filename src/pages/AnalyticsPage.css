@@ -1,0 +1,38 @@
+.analytics-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin-top: 24px;
+}
+
+.analytics-card {
+  height: 384px; /* equivalent to h-96 */
+  display: flex;
+  flex-direction: column;
+}
+
+.analytics-legend {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-top: -40px;
+  padding-bottom: 20px;
+}
+
+.analytics-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.analytics-legend-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.analytics-legend-text {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-main);
+}

@@ -1,0 +1,228 @@
+.sidebar {
+  width: var(--sidebar-width);
+  background-color: var(--bg-sidebar);
+  border-right: 1px solid var(--border-color);
+  padding: 32px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.sidebar::-webkit-scrollbar {
+  width: 4px;
+}
+.sidebar::-webkit-scrollbar-thumb {
+  background-color: var(--border-color);
+  border-radius: 4px;
+}
+
+.sidebar-header {
+  margin-bottom: 8px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 18px;
+}
+
+.logo-icon {
+  color: var(--primary);
+  font-size: 20px;
+}
+
+.logo-text {
+  color: var(--text-main);
+}
+
+.sidebar-nav ul {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 16px;
+  border-radius: var(--border-radius-md);
+  color: var(--text-muted);
+  font-weight: 500;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.nav-item:hover {
+  background-color: #F8F9FA;
+  color: var(--text-main);
+}
+
+.nav-item.active {
+  background-color: var(--primary-light);
+  color: var(--primary);
+}
+
+.nav-icon {
+  opacity: 0.7;
+}
+
+.nav-item.active .nav-icon {
+  opacity: 1;
+}
+
+.section-title {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-light);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.text-warning {
+  color: var(--warning);
+}
+
+.quick-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 10px 16px;
+  border-radius: var(--border-radius-md);
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.btn-primary {
+  background-color: var(--primary);
+  color: white;
+}
+.btn-primary:hover {
+  background-color: #6941C6;
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: var(--text-main);
+  border: 1px solid var(--border-color);
+}
+.btn-outline:hover {
+  background-color: #F8F9FA;
+}
+
+.streaks-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.streak-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  border-radius: var(--border-radius-md);
+  border: 1px solid var(--border-color);
+  background-color: var(--bg-card);
+}
+
+.streak-icon-wrapper {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.streak-icon-wrapper.success {
+  background-color: var(--success-bg);
+  color: var(--success);
+}
+.streak-icon-wrapper.primary {
+  background-color: var(--primary-light);
+  color: var(--primary);
+}
+.streak-icon-wrapper.info {
+  background-color: var(--info-bg);
+  color: var(--info);
+}
+
+.streak-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.streak-name {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-main);
+}
+
+.streak-days {
+  font-size: 12px;
+  font-weight: 600;
+}
+.success-text { color: var(--success); }
+.primary-text { color: var(--primary); }
+.info-text { color: var(--info); }
+
+.quote-card {
+  margin-top: auto;
+  background: linear-gradient(180deg, #F9F8FF 0%, #EAE5FF 100%);
+  border-radius: var(--border-radius-lg);
+  padding: 24px 20px;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  border: 1px solid var(--primary-light);
+}
+
+.quote-mark {
+  font-size: 40px;
+  line-height: 1;
+  font-family: serif;
+  color: var(--text-main);
+  opacity: 0.8;
+  margin-bottom: -10px;
+}
+
+.quote-text {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-main);
+  position: relative;
+  z-index: 2;
+}
+
+.quote-bg-illustration {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 200 60" xmlns="http://www.w3.org/2000/svg"><path d="M0 60L20 40L40 50L60 30L80 45L100 20L120 40L140 25L160 45L180 35L200 50V60H0Z" fill="%232D3748" opacity="0.1"/><path d="M0 60L30 30L60 55L90 25L120 45L150 20L180 45L200 35V60H0Z" fill="%232D3748" opacity="0.15"/></svg>') no-repeat bottom center;
+  background-size: cover;
+  z-index: 1;
+  opacity: 0.5;
+}
