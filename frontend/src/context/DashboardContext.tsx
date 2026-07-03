@@ -83,9 +83,14 @@ export const DashboardProvider = ({ children }: { children: ReactNode }) => {
         axios.get(`${API_URL}/reflection`), axios.get(`${API_URL}/user`), axios.get(`${API_URL}/goals`),
         axios.get(`${API_URL}/focus`), axios.get(`${API_URL}/agenda`), axios.get(`${API_URL}/meetings`), axios.get(`${API_URL}/templates`)
       ]);
-      setTasks(tasksRes.data); setNotes(notesRes.data); setChecklist(checkRes.data);
+      setTasks(Array.isArray(tasksRes.data) ? tasksRes.data : []); 
+      setNotes(Array.isArray(notesRes.data) ? notesRes.data : []); 
+      setChecklist(Array.isArray(checkRes.data) ? checkRes.data : []);
       setReflection(refRes.data); setUser(userRes.data); setGoal(goalRes.data);
-      setFocusTask(focusRes.data); setAgenda(agendaRes.data); setMeetings(meetRes.data); setTemplates(tempRes.data);
+      setFocusTask(focusRes.data); 
+      setAgenda(Array.isArray(agendaRes.data) ? agendaRes.data : []); 
+      setMeetings(Array.isArray(meetRes.data) ? meetRes.data : []); 
+      setTemplates(Array.isArray(tempRes.data) ? tempRes.data : []);
     } catch (err) { console.error('Error fetching data', err); } finally { setLoading(false); }
   };
 
