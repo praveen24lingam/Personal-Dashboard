@@ -1,4 +1,4 @@
-import { Bell, Clock, Target, Search } from 'lucide-react';
+import { Clock, Target, Search } from 'lucide-react';
 import { useDashboardContext } from '../context/DashboardContext';
 import { useNavigate } from 'react-router-dom';
 import './Header.css';

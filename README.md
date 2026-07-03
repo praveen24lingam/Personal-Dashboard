@@ -1,32 +1,35 @@
-# React + TypeScript + Vite
+# Personal Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+A personal productivity dashboard: tasks, notes, checklist, daily reflection, and a real Google Calendar integration.
 
-Currently, two official plugins are available:
+## Structure
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the Oxlint configuration
-
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
-
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+```
+.
+├── frontend/   React + TypeScript + Vite app
+└── backend/    Express API backed by Supabase (Postgres), plus Google Calendar OAuth
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+## Local development
+
+**Backend** (`backend/`):
+```
+cd backend
+npm install
+cp .env.example .env   # fill in Google OAuth + Supabase credentials
+node server.js
+```
+Also run `backend/supabase_schema.sql` once in your Supabase project's SQL Editor before first boot.
+
+**Frontend** (`frontend/`):
+```
+cd frontend
+npm install
+cp .env.example .env   # VITE_API_URL, defaults to http://localhost:3001/api
+npm run dev
+```
+
+## Deployment
+
+- **Frontend** deploys to Vercel with Root Directory set to `frontend`. Set `VITE_API_URL` in the Vercel project's environment variables to the deployed backend URL (e.g. `https://your-backend.onrender.com/api`).
+- **Backend** deploys to Render with Root Directory set to `backend`, start command `node server.js`. Set `SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY`, `GOOGLE_CLIENT_ID`, `GOOGLE_CLIENT_SECRET`, `GOOGLE_REDIRECT_URI` (pointing at the Render URL's `/api/calendar/oauth2callback`), and `FRONTEND_URL` (the deployed Vercel URL) as environment variables. Remember to also add the production redirect URI to the Google Cloud Console OAuth client's authorized redirect URIs.
