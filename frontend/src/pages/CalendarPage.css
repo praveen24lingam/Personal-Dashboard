@@ -10,6 +10,8 @@
   flex: 1;
   padding: 0 !important; /* override the 24px default padding of .card */
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
 .cal-cell-header {
@@ -29,6 +31,7 @@
   grid-template-columns: repeat(7, 1fr);
   flex: 1;
   background: var(--bg-card);
+  overflow-y: auto;
 }
 
 .cal-cell {
