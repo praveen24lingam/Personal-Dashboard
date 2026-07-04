@@ -210,7 +210,7 @@ const CalendarPage = () => {
   };
 
   return (
-    <div className="flex flex-col h-full">
+    <div className="flex flex-col">
       <div className="header">
         <div className="header-left">
           <h1 className="greeting">Calendar</h1>
