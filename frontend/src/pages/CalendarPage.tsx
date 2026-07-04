@@ -24,8 +24,14 @@ const getGoogleEventDateKey = (event: GoogleEvent): string => {
   return toDateKey(d.getFullYear(), d.getMonth(), d.getDate());
 };
 
-const formatLocalTime = (iso: string) =>
-  new Date(iso).toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' });
+const timeFormatter = new Intl.DateTimeFormat([], { hour: 'numeric', minute: '2-digit' });
+const formatLocalTime = (iso: string) => {
+  try {
+    return timeFormatter.format(new Date(iso));
+  } catch {
+    return '';
+  }
+};
 
 const CalendarPage = () => {
   const {
@@ -112,11 +118,19 @@ const CalendarPage = () => {
     if (googleConnected) {
       const dateKey = toDateKey(currentYear, currentMonth, day);
       const dayEvents = googleEventsByDate.get(dateKey) ?? [];
-      items.push(...dayEvents.map(ev => ({
+      
+      // Limit to max 10 events per cell to prevent layout thrashing/freezing
+      const displayEvents = dayEvents.slice(0, 10);
+      
+      items.push(...displayEvents.map(ev => ({
         type: 'google',
         text: ev.allDay ? ev.summary : `${formatLocalTime(ev.start)} ${ev.summary}`,
         googleEvent: ev,
       })));
+      
+      if (dayEvents.length > 10) {
+        items.push({ type: 'google', text: `+${dayEvents.length - 10} more` });
+      }
     }
 
     return items;
