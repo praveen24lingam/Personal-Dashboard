@@ -5,7 +5,12 @@ import { useDashboardContext } from '../context/DashboardContext';
 import { Modal } from './Modal';
 import './Sidebar.css';
 
-const Sidebar = () => {
+interface SidebarProps {
+  isOpen?: boolean;
+  onClose?: () => void;
+}
+
+const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
   const { user, addTask, addNote, addMeeting } = useDashboardContext();
   const [isTaskModalOpen, setIsTaskModalOpen] = useState(false);
   const [isNoteModalOpen, setIsNoteModalOpen] = useState(false);
@@ -41,7 +46,7 @@ const Sidebar = () => {
   };
 
   return (
-    <aside className="sidebar">
+    <aside className={`sidebar ${isOpen ? 'open' : ''}`}>
       <div className="sidebar-header">
         <div className="logo">
           <div className="logo-icon">✨</div>
@@ -51,27 +56,27 @@ const Sidebar = () => {
 
       <nav className="sidebar-nav">
         <ul>
-          <NavLink to="/" className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}>
+          <NavLink to="/" className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`} onClick={onClose}>
             <LayoutDashboard className="nav-icon" size={20} />
             <span>Dashboard</span>
           </NavLink>
-          <NavLink to="/tasks" className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}>
+          <NavLink to="/tasks" className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`} onClick={onClose}>
             <CheckSquare className="nav-icon" size={20} />
             <span>Tasks</span>
           </NavLink>
-          <NavLink to="/calendar" className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}>
+          <NavLink to="/calendar" className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`} onClick={onClose}>
             <CalendarDays className="nav-icon" size={20} />
             <span>Calendar</span>
           </NavLink>
-          <NavLink to="/analytics" className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}>
+          <NavLink to="/analytics" className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`} onClick={onClose}>
             <BarChart2 className="nav-icon" size={20} />
             <span>Analytics</span>
           </NavLink>
-          <NavLink to="/matrix" className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}>
+          <NavLink to="/matrix" className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`} onClick={onClose}>
             <Grid className="nav-icon" size={20} />
             <span>Priority Matrix</span>
           </NavLink>
-          <NavLink to="/templates" className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}>
+          <NavLink to="/templates" className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`} onClick={onClose}>
             <FileText className="nav-icon" size={20} />
             <span>Templates</span>
           </NavLink>
