@@ -26,3 +26,10 @@
 .matrix-quadrant.gray {
   border-top: 4px solid var(--text-muted);
 }
+
+@media (max-width: 768px) {
+  .matrix-grid {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+}

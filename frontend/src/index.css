@@ -159,6 +159,15 @@ button {
 .badge.not-started { background-color: #F4F4F5; color: var(--text-muted); }
 
 /* Responsive Media Queries */
+@media (max-width: 1440px) {
+  .dashboard-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .col-span-3, .col-span-4 {
+    grid-column: span 3;
+  }
+}
+
 @media (max-width: 1024px) {
   .dashboard-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -166,29 +175,38 @@ button {
   .col-span-3, .col-span-4 {
     grid-column: span 2;
   }
+  .main-content {
+    padding: 24px 32px;
+  }
 }
 
 @media (max-width: 768px) {
   .app-container {
     flex-direction: column;
+    overflow-x: hidden;
+    width: 100%;
   }
   
   .main-content {
     padding: 16px;
-    margin-top: 60px; /* Space for mobile header if added */
+    margin-top: 60px; /* Space for mobile header */
+    gap: 16px;
+    width: 100%;
+    overflow-x: hidden;
   }
 
   .dashboard-grid {
     grid-template-columns: 1fr;
+    gap: 16px;
   }
 
   .col-span-1, .col-span-2, .col-span-3, .col-span-4 {
-    grid-column: span 1;
+    grid-column: span 1 !important;
   }
   
   .header {
     flex-direction: column;
     align-items: flex-start;
-    gap: 16px;
+    gap: 12px;
   }
 }

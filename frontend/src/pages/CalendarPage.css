@@ -247,19 +247,10 @@
 @media (max-width: 768px) {
   .calendar-card {
     overflow-x: auto;
+    width: 100%;
   }
   .cal-grid-header, .cal-grid-body {
-    min-width: 800px; /* Force minimum width to allow horizontal scroll without squishing */
-  }
-  .header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 16px;
-  }
-  .header-right {
-    width: 100%;
-    flex-direction: column;
-    align-items: flex-start;
+    min-width: 700px; /* Force minimum width to allow horizontal scroll without squishing */
   }
   .google-status-group {
     flex-wrap: wrap;

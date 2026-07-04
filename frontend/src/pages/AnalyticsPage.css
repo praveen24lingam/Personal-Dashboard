@@ -36,3 +36,9 @@
   font-weight: 500;
   color: var(--text-main);
 }
+
+@media (max-width: 1024px) {
+  .analytics-grid {
+    grid-template-columns: 1fr;
+  }
+}

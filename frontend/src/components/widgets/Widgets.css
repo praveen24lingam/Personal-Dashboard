@@ -142,3 +142,9 @@
 .quadrant-important { background-color: var(--warning-bg); }
 .quadrant-urgent { background-color: var(--info-bg); }
 .quadrant-later { background-color: #F4F4F5; }
+
+@media (max-width: 768px) {
+  .matrix-grid {
+    grid-template-columns: 1fr;
+  }
+}

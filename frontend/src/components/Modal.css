@@ -68,11 +68,20 @@
   color: var(--text-main);
   outline: none;
   transition: all 0.2s;
+  min-height: 44px;
 }
 
 .modal-input:focus {
   background-color: white;
   border-color: var(--primary);
+}
+
+@media (max-width: 768px) {
+  .modal-content {
+    width: 95%;
+    max-width: none;
+    margin: 16px;
+  }
 }
 
 @keyframes fadeIn {

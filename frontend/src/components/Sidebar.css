@@ -261,7 +261,7 @@
   backdrop-filter: blur(2px);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .mobile-header {
     display: flex;
   }
@@ -273,7 +273,7 @@
   .sidebar {
     position: fixed;
     top: 0;
-    left: -280px; /* Hide off-screen by default */
+    left: -300px; /* Hide off-screen by default */
     width: 280px;
     height: 100vh;
     z-index: 1002;
@@ -283,5 +283,12 @@
 
   .sidebar.open {
     left: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    width: 80vw;
+    max-width: 320px;
   }
 }
